@@ -51,12 +51,8 @@ node_modules/
 *.zip
 *.tar.gz
 
-# Screenshots: ignore directory contents by default (audit outputs grow fast);
-# README-referenced assets are whitelisted below. Note: we use screenshots/*
-# (not screenshots/) so the `!screenshots/foo` re-include rules work.
+# Screenshots directory (audit output only; no demo media shipped)
 screenshots/*
-!screenshots/seo-command-demo.gif
-!screenshots/seo-audit-demo.gif
 
 # Brand kit reference renders (PNG snapshots of the SVG comparison page).
 # The SVGs themselves under assets/ ship; the PNGs are scratch references.
@@ -98,7 +94,7 @@ sitemap-validation-report.md
 claude-ads-main/
 hermes-seo-main/
 
-# Root-level duplicate media files (originals live in screenshots/)
+# Root-level duplicate media files
 Cover Image.jpeg
 seo audit demo.gif
 seo command demo.gif

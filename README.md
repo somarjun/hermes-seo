@@ -1,5 +1,3 @@
-![Hermes SEO terminal banner: animated CRT command palette with /seo audit, /seo schema, /seo geo, system line showing 25 sub-skills, 271 tests, 8 MCP servers](assets/banner.svg)
-
 # Hermes SEO: SEO Analysis Skill for Hermes Agent
 
 **Hermes SEO is an open-source SEO analysis skill suite for [Hermes Agent](https://hermes-agent.nousresearch.com/docs).** It runs 25 sub-skills and 18 delegate briefs in parallel via `delegate_task` across technical SEO, content quality (E-E-A-T), Schema.org markup, AI search optimization (GEO), local SEO, e-commerce, and international SEO. Every audit produces a prioritized action plan with falsifiable recommendations grounded in primary-source guidance from Google.
@@ -11,7 +9,7 @@
 [![Tests](https://img.shields.io/badge/tests-271%20passing-brightgreen)](tests/)
 [![Community](https://img.shields.io/badge/AI%20Marketing%20Hub-Pro%20community-purple)](https://www.skool.com/ai-marketing-hub-pro)
 
-> Ported from [Claude SEO](https://github.com/AgriciDaniel/claude-seo) for [Hermes Agent](https://hermes-agent.nousresearch.com/docs). Same 25 sub-skills, delegate briefs instead of Claude subagents, Hermes-native `delegate_task` orchestration.
+> **Hermes port of [Claude SEO](https://github.com/AgriciDaniel/claude-seo)** by [AgriciDaniel](https://github.com/AgriciDaniel). This repository adapts the original Claude Code plugin for [Hermes Agent](https://hermes-agent.nousresearch.com/docs): same 25 sub-skills and SEO methodology, with delegate briefs and `delegate_task` orchestration instead of Claude subagents. MIT licensed upstream — see [Credits](#credits).
 
 ### Why Hermes SEO
 
@@ -26,14 +24,6 @@
 - **SEO agencies running 5+ client sites.** Replace quarterly deep audits with weekly automated runs. Same team capacity, 4× audit cadence, every recommendation comes with a falsifiability check the client can verify.
 - **In-house SEO leads at SaaS / publisher / e-commerce companies.** Second-pair-of-eyes before executive reviews. Catches what GSC and Lighthouse hide: schema deprecation, AI-citability gaps, expired-domain heritage risk, parasite-SEO exposure, machine-translation drift.
 - **Freelance SEO consultants.** Anchor day-one client scope with a 15-minute audit and a real 0-100 score. Win the engagement with concrete proof of value before you spend an hour writing the proposal.
-
-![Hermes SEO /seo command demo in Hermes Agent terminal](screenshots/seo-command-demo.gif)
-
-Run a full audit and watch parallel agents fan out across the site:
-
-![Hermes SEO /seo audit demo: parallel subagents producing a prioritized action plan](screenshots/seo-audit-demo.gif)
-
-[Watch the full demo on YouTube](https://www.youtube.com/watch?v=COMnNlUakQk)
 
 ## Table of Contents
 
@@ -58,6 +48,7 @@ Run a full audit and watch parallel agents fan out across the site:
 - [Community Contributors](#community-contributors)
 - [License](#license)
 - [Contributing](#contributing)
+- [Credits](#credits)
 - [Author](#author)
 
 ## Installation
@@ -475,12 +466,23 @@ Contributions welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before sub
 
 ---
 
+## Credits
+
+Hermes SEO is a port of **[Claude SEO](https://github.com/AgriciDaniel/claude-seo)** by **[Agrici Daniel](https://github.com/AgriciDaniel)** ([AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo)).
+
+| | |
+|---|---|
+| **Original project** | [github.com/AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo) |
+| **Original author** | [Agrici Daniel](https://github.com/AgriciDaniel) |
+| **License** | MIT (retained from upstream) |
+| **This port** | Hermes Agent skill suite — skills install to `~/.hermes/skills/`, parallel audits via `delegate_task` |
+
+If you use or extend this work, please credit the upstream project. Bug fixes and SEO methodology improvements belong upstream when they are not Hermes-specific.
+
+---
+
 ## Author
 
-Built by **[Agrici Daniel](https://agricidaniel.com/about)**, AI Workflow Architect. Single maintainer, open to community contributions via the [Pro Skool community](https://www.skool.com/ai-marketing-hub-pro). Background in marketing automation, AI-assisted content workflows, and open-source tooling for Hermes Agent.
+Hermes port maintained by **[somarjun](https://github.com/somarjun)**.
 
-- [Blog](https://agricidaniel.com/blog): deep dives on AI marketing automation
-- [AI Marketing Hub (free)](https://www.skool.com/ai-marketing-hub): open community
-- [AI Marketing Hub Pro](https://www.skool.com/ai-marketing-hub-pro): Pro community, early access to this skill
-- [YouTube](https://www.youtube.com/@AgriciDaniel): tutorials and demos
-- [GitHub](https://github.com/AgriciDaniel): all open-source tools
+Original **Claude SEO** created by **[Agrici Daniel](https://github.com/AgriciDaniel)** — AI Workflow Architect and maintainer of the upstream skill suite.
