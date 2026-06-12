@@ -13,9 +13,12 @@ metadata:
 
 # Full Website SEO Audit
 
+**Scripts:** `${HERMES_SKILL_DIR}/scripts/` (symlinked to `~/.hermes/skills/seo/scripts/` at install).
+Use the orchestrator venv when available: `~/.hermes/skills/seo/.venv/bin/python`.
+
 ## Process
 
-1. **Fetch homepage**: use `scripts/fetch_page.py` to retrieve HTML
+1. **Fetch homepage**: `python ${HERMES_SKILL_DIR}/scripts/fetch_page.py <url>`
 2. **Detect business type**: analyze homepage signals per seo orchestrator
 3. **Crawl site**: follow internal links up to 500 pages, respect robots.txt
 4. **Delegate to subagents** (if available, otherwise run inline sequentially):
@@ -53,7 +56,7 @@ Delay between requests: 1 second
 - `FULL-AUDIT-REPORT.md`: Comprehensive findings
 - `ACTION-PLAN.md`: Prioritized recommendations (Critical > High > Medium > Low)
 - `screenshots/`: Desktop + mobile captures (if Playwright available)
-- **PDF Report** (recommended): Generate a professional A4 PDF using `scripts/google_report.py --type full`. This produces a white-cover enterprise report with TOC, executive summary, charts (Lighthouse gauges, query bars, index donut), metric cards, threshold tables, prioritized recommendations with effort estimates, and implementation roadmap. Always offer PDF generation after completing an audit.
+- **PDF Report** (recommended): Generate a professional A4 PDF using `${HERMES_SKILL_DIR}/scripts/google_report.py --type full`. This produces a white-cover enterprise report with TOC, executive summary, charts (Lighthouse gauges, query bars, index donut), metric cards, threshold tables, prioritized recommendations with effort estimates, and implementation roadmap. Always offer PDF generation after completing an audit.
 
 ## Scoring Weights
 

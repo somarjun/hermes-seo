@@ -15,7 +15,7 @@ metadata:
 
 **Invocation:** `/seo $1 $2` where `$1` is the command and `$2` is the URL or argument.
 
-**Scripts:** Located at `${HERMES_SKILL_DIR}/scripts/` (installed under `~/.hermes/skills/seo/scripts/`).
+**Scripts:** Located at `${HERMES_SKILL_DIR}/scripts/` (canonical copy under `~/.hermes/skills/seo/scripts/`; symlinked into every `seo-*` sub-skill at install so sub-skills resolve paths correctly).
 
 Comprehensive SEO analysis across all industries (SaaS, local services,
 e-commerce, publishers, agencies). Orchestrates 24 sub-skills (21 core + 1 framework

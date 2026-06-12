@@ -5,6 +5,26 @@ set -euo pipefail
 # Installs skills to ~/.hermes/skills/ for Hermes Agent
 # Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/skills
 
+# Hermes resolves ${HERMES_SKILL_DIR} to the active skill's directory (e.g.
+# ~/.hermes/skills/seo-audit/). Shared Python scripts live under seo/scripts/
+# and are symlinked into every seo-* sub-skill at install time so
+# ${HERMES_SKILL_DIR}/scripts/fetch_page.py works from any sub-skill.
+link_shared_resources() {
+    local skills_root="${1}"
+    local seo_root="${skills_root}/seo"
+
+    for item in scripts schema pdf hooks; do
+        [ -d "${seo_root}/${item}" ] || continue
+        for skill_dir in "${skills_root}"/seo-*; do
+            [ -d "${skill_dir}" ] || continue
+            rm -rf "${skill_dir}/${item}"
+            ln -sfn "../seo/${item}" "${skill_dir}/${item}"
+        done
+        linked=$(find "${skills_root}" -maxdepth 1 -type d -name 'seo-*' | wc -l | tr -d ' ')
+        echo "  ✓ Linked seo/${item} → ${linked} sub-skills"
+    done
+}
+
 main() {
     HERMES_SKILLS="${HOME}/.hermes/skills"
     SKILL_DIR="${HERMES_SKILLS}/seo"
@@ -117,6 +137,9 @@ main() {
         echo "→ Installing skill bundles..."
         cp "${WORK_DIR}/skill-bundles/"*.yaml "${BUNDLES_DIR}/" 2>/dev/null || true
     fi
+
+    echo "→ Linking shared resources into sub-skills..."
+    link_shared_resources "${HERMES_SKILLS}"
 
     cp "${WORK_DIR}/requirements.txt" "${SKILL_DIR}/requirements.txt" 2>/dev/null || true
 

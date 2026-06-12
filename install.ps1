@@ -3,6 +3,23 @@
 
 $ErrorActionPreference = "Stop"
 
+function Link-SharedResources {
+    param(
+        [Parameter(Mandatory = $true)][string]$SkillsRoot,
+        [Parameter(Mandatory = $true)][string]$SeoRoot
+    )
+    $items = @('scripts', 'schema', 'pdf', 'hooks')
+    Get-ChildItem -Directory $SkillsRoot -Filter 'seo-*' | ForEach-Object {
+        foreach ($item in $items) {
+            $source = Join-Path $SeoRoot $item
+            if (-not (Test-Path $source)) { continue }
+            $target = Join-Path $_.FullName $item
+            if (Test-Path $target) { Remove-Item -Force -Recurse $target }
+            New-Item -ItemType SymbolicLink -Path $target -Target $source -Force | Out-Null
+        }
+    }
+}
+
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "|   Hermes SEO - Installer             |" -ForegroundColor Cyan
 Write-Host "|   Hermes Agent SEO Skill              |" -ForegroundColor Cyan
@@ -169,6 +186,9 @@ try {
     if (Test-Path $BundlesPath) {
         Copy-Item -Force (Join-Path $BundlesPath '*.yaml') $BundlesDir -ErrorAction SilentlyContinue
     }
+
+    Write-Host "=> Linking shared resources into sub-skills..." -ForegroundColor Yellow
+    Link-SharedResources -SkillsRoot $HermesSkills -SeoRoot $SkillDir
 
     # Copy extensions (optional add-ons)
     $ExtensionsPath = Join-Path $WorkDir 'extensions'
