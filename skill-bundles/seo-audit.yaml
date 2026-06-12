@@ -1,0 +1,16 @@
+name: seo-audit
+description: Full website SEO audit — loads core audit skills together.
+skills:
+  - seo
+  - seo-audit
+  - seo-technical
+  - seo-content
+  - seo-schema
+  - seo-sitemap
+  - seo-geo
+  - seo-sxo
+instruction: |
+  Run a full site audit. Use delegate_task in parallel batches (respect
+  delegation.max_concurrent_children). Load delegate briefs from the seo skill's
+  references/delegates/ directory. Synthesize via the 10-principle framework
+  before emitting the prioritized action plan.

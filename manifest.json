@@ -1,0 +1,29 @@
+{
+  "name": "hermes-seo",
+  "version": "2.0.0",
+  "description": "Comprehensive SEO analysis skill suite for Hermes Agent. 25 sub-skills and 18 delegate briefs for parallel audits via delegate_task. Technical SEO, E-E-A-T, Schema.org, GEO, local SEO, e-commerce, international SEO, and optional MCP extensions.",
+  "author": {
+    "name": "somarjun",
+    "url": "https://github.com/somarjun"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/somarjun/hermes-seo",
+  "repository": "https://github.com/somarjun/hermes-seo",
+  "platform": "hermes-agent",
+  "hermes": {
+    "skills_dir": "~/.hermes/skills",
+    "bundles_dir": "~/.hermes/skill-bundles",
+    "config_dir": "~/.config/hermes-seo",
+    "sub_skills": 25,
+    "delegate_briefs": 18
+  },
+  "keywords": [
+    "seo",
+    "hermes-agent",
+    "technical-seo",
+    "schema-markup",
+    "geo",
+    "local-seo",
+    "core-web-vitals"
+  ]
+}
